@@ -33,14 +33,16 @@ Every file below passed `lake env lean` in Lean `4.33.1` + Mathlib + `formal-con
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.lean` | $H(n) \le 10$ ($n \le 46$) 2-anchor overlap reduction | [PR #6248](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/6248) (merged) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H3.lean` | $R(3,9) \ge 36 \land R(3,10) \ge 40$ (pure-kernel matching-cover trees) | [PR #6595](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/6595) (merged) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for `R1.H1.R1.H1.R1` | [PR #6647](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/6647) (merged) |
-| **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.lean`** | **NEW: $H(n) = 11$ ($n \le 52$) 3-anchor induced-path overlap reduction** | [PR #10252](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10252) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H3.lean` | $R(3,11) \ge 47$ via Exoo's 46-vertex `g.3.11.46` (2,333-node pure-kernel tree) | Ready |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for $H(n) = 11$ reduction | Ready |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.lean` | Combined $H(n) = 10, 11$ reduction on `R2.H2.R2.H1` | [PR #10215](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10215) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H2.lean` | $R(3,10) \ge 40 \land R(3,11) \ge 47$ (pure-kernel matching-cover trees) | Ready |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | Ready |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`) | [PR #10388](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10388) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.lean` | Degree reduction for $R(3,7) \le 23$ (`7 ≤ Erdos151.H 23`) | Ready |
+| **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.lean`** | **NEW: $H(n) = 11$ ($n \le 52$) 3-anchor induced-path overlap reduction** | [PR #10252](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10252) (CI passed) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under $H(n) = 11$ | [PR #11177](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11177) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H3.lean` | $R(3,11) \ge 47$ via Exoo's 46-vertex `g.3.11.46` (2,333-node pure-kernel tree) | [PR #10957](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10957) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for $H(n) = 11$ reduction | [PR #10981](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10981) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.lean` | Combined $H(n) = 10, 11$ reduction on `R2.H2.R2.H1` | [PR #10215](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10215) (CI passed) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H1.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under `R2.H2.R2.H1.R1` | [PR #11175](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11175) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H2.lean` | $R(3,10) \ge 40 \land R(3,11) \ge 47$ (pure-kernel matching-cover trees) | [PR #10935](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10935) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | Verified |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`) | [PR #10388](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10388) (CI passed) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.lean` | Degree reduction for $R(3,7) \le 23$ (`7 ≤ Erdos151.H 23`) | [PR #11008](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11008) |
 
 *(Also merged earlier in the same chain: [PR #4497](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/4497) for `R1.H1.R1`, degeneracy 6 → 7.)*
 
