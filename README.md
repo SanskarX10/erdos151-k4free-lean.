@@ -36,29 +36,31 @@ Every file below passed `lake env lean` in Lean `4.33.1` + Mathlib + `formal-con
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for `R1.H1.R1.H1.R1` | [PR #6647](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/6647) (merged) |
 | **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.lean`** | **NEW: $H(n) = 11$ ($n \le 52$) 3-anchor induced-path overlap reduction** | [PR #10252](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10252) (merged) |
 | **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H1.R1.lean`** | **NEW: $H(n) = 12$ ($n \ge 54$) 4-anchor star + Seymour cubic-link $C_4$ square reduction (isolates $n = 53$)** | [PR #19010](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/19010) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under $H(n) = 11$ | [PR #11177](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11177) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H3.lean` | $R(3,11) \ge 47$ via Exoo's 46-vertex `g.3.11.46` (2,333-node pure-kernel tree) | [PR #10957](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10957) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for $H(n) = 11$ reduction | [PR #10981](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10981) |
+| **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H1.R1.H3.lean`** | **Pure-kernel proof of $R(3,12) \ge 53$ via 52-vertex triangle-free witness (2,891-node matching-cover tree)** | Modal-verified (pending `#19010` merge) |
+| **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H1.R1.H4.lean`** | **Pure-kernel proof of Bikov $k \le 7$ + Seymour's theorem $T(F) \ge |E(F)|$ via $\mathbb{Q}$-linear incidence kernel** | Modal-verified (pending `#19010` merge) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under $H(n) = 11$ | [PR #11177](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11177) (merged) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H3.lean` | $R(3,11) \ge 47$ via Exoo's 46-vertex `g.3.11.46` (2,333-node pure-kernel tree) | [PR #10957](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10957) (merged) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H1.R1.H4.lean` | Bikov $k \le 7$ for $H(n) = 11$ reduction | [PR #10981](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10981) (merged) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.lean` | Combined $H(n) = 10, 11$ reduction on `R2.H2.R2.H1` | [PR #10215](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10215) (merged) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H1.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under `R2.H2.R2.H1.R1` | [PR #11175](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11175) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H2.lean` | $R(3,10) \ge 40 \land R(3,11) \ge 47$ (pure-kernel matching-cover trees) | [PR #10935](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10935) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | [PR #11879](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11879) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H1.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under `R2.H2.R2.H1.R1` | [PR #11175](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11175) (merged) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H2.lean` | $R(3,10) \ge 40 \land R(3,11) \ge 47$ (pure-kernel matching-cover trees) | [PR #10935](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10935) (merged) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | [PR #11879](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11879) (merged) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`) | [PR #10388](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10388) (merged) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.lean` | Degree reduction for $R(3,7) \le 23$ (`7 ≤ Erdos151.H 23`) | [PR #11008](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11008) |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.lean` | Degree reduction for $R(3,7) \le 23$ (`7 ≤ Erdos151.H 23`) | [PR #11008](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11008) (merged) |
 | **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.H1.lean`** | **Pure-kernel proof of $R(3,6) \le 18$ (`6 ≤ Erdos151.H 18`)** | [PR #16943](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/16943) |
 
 *(Also merged earlier in the same chain: [PR #4497](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/4497) for `R1.H1.R1`, degeneracy 6 → 7.)*
 
 ## Remaining Explicit Premises
 
-The combined $H(n) \le 12$ ($n \neq 53$) reduction chain is conditional on:
-1. $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`, McKay & Min 1992 — degree reductions merged in `#10388`, pure-kernel $R(3,6) \le 18$ submitted in `#16943`),
-2. $R(3,11) \ge 47$ (**proved in pure kernel** in `...H3.lean`) and $R(3,12) \ge 53$ (known bound; an improved $R(3,12) \ge 54$ would eliminate $n = 53$ outright),
-3. Bikov's 7-vertex link-extension lemma (**proved in pure kernel**) and Seymour's triangle-count bound $T(F) \ge |E(F)|$ for minimal $(3,3)$-arrowing subgraphs, and
-4. The remaining open core: **$(H(n) = 12 \land n = 53)$ or $13 \le H(n)$ ($n \ge 60$)**.
+The combined $H(n) \le 12$ ($n \neq 53$) reduction chain is conditional ONLY on:
+1. $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`, McKay & Min 1992 — degree reductions merged in `#10388`/`#11008`, pure-kernel $R(3,6) \le 18$ submitted in `#16943`), and
+2. The remaining open core: **$(H(n) = 12 \land n = 53)$ or $13 \le H(n)$ ($n \ge 60$)**.
+
+*(All lower bounds $R(3,9) \ge 36$, $R(3,10) \ge 40$, $R(3,11) \ge 47$, $R(3,12) \ge 53$, Bikov's $k \le 7$ lemma, and Seymour's triangle-count bound $T(F) \ge |E(F)|$ are now proved in pure Lean 4 kernel!)*
 
 ## Reproducibility
 
-- Formalizations were produced with `ply-math` (`gpt-6.2-sol + gpt-6-lluna`) and verified on Lean `4.33.1` + `formal-conjectures` (`9097e2f90e`).
-- `scripts/gen_h3.py` reproduces the pure-kernel matching-cover branch-and-bound certificate generator for Ramsey lower bounds.
+- Formalizations were produced with `ply-math` (`gpt-6.2-sol + gpt-6-lluna`) and direct Lean 4 authoring, verified on Lean `4.33.1` + `formal-conjectures` (`9097e2f90e`).
+- `scripts/gen_h3.py` and `scripts/gen_h12_h3.py` reproduce the pure-kernel matching-cover branch-and-bound certificate generators for Ramsey lower bounds ($R(3,9) \ge 36$, $R(3,10) \ge 40$, $R(3,12) \ge 53$).
 - `scripts/gen_r36.py` reproduces the pure-kernel bitmask certificate generator for the 5-regular 18-vertex case of $R(3,6) \le 18$.
