@@ -4,24 +4,25 @@ Pure-kernel Lean 4 + Mathlib formalizations (verified against `google-deepmind/f
 
 > For every $K_4$-free graph $G$ on $n$ vertices, does the clique transversal number satisfy $\tau(G) \le n - H(n)$, where $H(n)$ is the largest $k$ such that every triangle-free graph on $n$ vertices has an independent set of size $k$?
 
-## Main Mathematical Contribution
+## Main Mathematical Contributions
 
-Our key new step is a **three-vertex induced-path overlap reduction** that resolves **all $K_4$-free graphs with $H(n) = 11$** (closing all $n \le 52$ via $R(3,12) \ge 53$, and reducing the remaining open problem to $H(n) \ge 12$, i.e., $n \ge 53$).
+We formalize two new computer-free overlap reductions that push the $K_4$-free Erdős Problem #151 frontier from $H(n) \le 10$ ($n \le 46$) all the way through **$H(n) \le 12$ for all $n \neq 53$** (closing all $n \le 52$ and all $54 \le n \le 59$, isolating the single order $n = 53$ and reducing the remaining open problem to $(H(n)=12, n=53)$ or $H(n) \ge 13$, i.e., $n \ge 60$):
 
 ### What Is Prior vs. What Is New
 - **Prior results (formalized here as pure-kernel Lean proofs/lemmas):**
   - Bikov's 7-vertex triangle-free link-extension lemma ($k \le 7$), giving $\delta(F) \ge 8$ in a subgraph-minimal $(3,3)$-arrowing subgraph $F \le G$.
   - Single-vertex and adjacent-pair neighborhood deletion ($H(n) \le 10$, $n \le 46$).
-  - Classical Ramsey bounds: $R(3,9) \ge 36$ (Kalbfleisch), $R(3,10) \ge 40$ and $R(3,11) \ge 47$ (Exoo's `g310.39` and `g.3.11.46`), and $R(3,8) \le 28$ (McKay & Min 1992).
-- **New step ($H(n) = 11$, $n \le 52$):**
-  - In a subgraph-minimal arrowing subgraph $F \le G$ ($\delta(F) \ge 8$, every $F$-edge in $\ge 2$ $F$-triangles, $\Delta(G) \le 10$, $n \ge 47$), we construct a **three-vertex induced path** $a - b - c$ ($F.\text{Adj } a\,b$, $F.\text{Adj } b\,c$, $\neg G.\text{Adj } a\,c$) together with independent link-sets $A \subseteq P_a$, $B \subseteq P_b$, $C \subseteq P_c$ ($b \in A$, $a, c \in B$, $b \in C$) satisfying:
-    $$|A| + |B| + |C| + s_{ab} + s_{bc} \ge 14,$$
-    where $s_{uv} = |N_G(u) \cap N_G(v)|$.
-  - Using the 3-set overlap bound $|D_a \cup D_b \cup D_c| \le |D_a| + |D_b| + |D_c| - |D_a \cap D_b| - |D_b \cap D_c|$ with $s_{ab} \le |D_a \cap D_b|$ and $s_{bc} \le |D_b \cap D_c|$, the deletion set $D = \{a, b, c\} \cup D_a \cup D_b \cup D_c$ has size **at most $19$**.
-  - Since $n \ge 47$, at least $47 - 19 = 28$ vertices remain. Applying $R(3,8) \le 28$ (plus Bikov $k \le 7$ to color the remainder if it has no degree-$\ge 8$ vertex) yields 8 triangle-free vertices in $G - D$, and adding all three anchors $\{a, b, c\}$ back yields an 11-vertex triangle-free set, giving $\tau(G) \le n - 11$.
-  - Importantly, this argument requires **no** extra assumption that every edge of $G$ lies in a triangle and **zero computer search** for the reduction itself.
+  - Classical Ramsey bounds: $R(3,6) \le 18$ (**proved here in pure Lean 4 kernel** via bitmask `rfl` certificates!), $R(3,9) \ge 36$ (Kalbfleisch), $R(3,10) \ge 40$ and $R(3,11) \ge 47$ (Exoo's `g310.39` and `g.3.11.46`), and $R(3,8) \le 28$ (McKay & Min 1992).
+- **New Step 1 ($H(n) = 11$, $n \le 52$ — [PR #10252](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10252), merged):**
+  - In a subgraph-minimal arrowing subgraph $F \le G$ ($\delta(F) \ge 8$, every $F$-edge in $\ge 2$ $F$-triangles, $\Delta(G) \le 10$, $n \ge 47$), we construct a **three-vertex induced path** $a - b - c$ together with independent link-sets $A \subseteq P_a$, $B \subseteq P_b$, $C \subseteq P_c$ ($b \in A$, $a, c \in B$, $b \in C$) satisfying $|A| + |B| + |C| + s_{ab} + s_{bc} \ge 14$.
+  - The 3-set overlap bound gives deletion cost $|D| \le 19$, leaving $\ge 47 - 19 = 28$ vertices; $R(3,8) \le 28$ + Bikov $k \le 7$ adds 8 vertices back to $\{a, b, c\}$ for an 11-vertex triangle-free set.
+- **New Step 2 ($H(n) = 12$ for all $n \ge 54$, isolating $n = 53$ — [PR #19010](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/19010)):**
+  - With $\Delta(G) \le 11$ and $n \ge 54$, we always find **4 free anchors** with deletion cost **at most $26$** (leaving $\ge 54 - 26 = 28$ vertices, so $4 + 8 = 12$):
+    - **Case 1 (Star):** Pick an independent set $I_b \subseteq Q_b = G[N_F(b)]$ containing 3 leaves $a, c, d$ forming a $K_{1,3}$ star. Each leaf $x$ guarantees $|I_x| + s_{bx} \ge 5, 6, 7$ for $d_{Q_b}(x) \ge 2, 3, 4$. If any star has $|I_b| + \sum_{x \in \{a,c,d\}} (|I_x| + s_{bx}) \ge 22$, tree overlap gives $|D| \le 48 - 22 = 26$.
+    - **Case 2 (Seymour-forced cubic-link $C_4$ square):** If every star has sum $< 22$, discharging incidences between degree-2 and degree-$\ge 4$ vertices in each link gives $2|E(Q_b)| \le 3|V(Q_b)|$, while Seymour's bound $T(F) \ge |E(F)|$ gives $\sum_b |E(Q_b)| \ge \frac{3}{2}\sum_b |V(Q_b)|$. Equality holds everywhere, forcing every link to be **3-regular on 8 vertices** with $\alpha \le 3$. Every 3-regular triangle-free 8-vertex graph has an **induced $C_4$ square**; keeping an independent triple at each square vertex gives 4-set overlap $12 - \mu$ where $\mu \le 2$ (else 3 common neighbors force an independent 4-set in an 8-vertex link), yielding $|D| \le 4 + 4(11 - 3) - (12 - 2) = 26$.
+  - Both reductions require **no** extra assumption that every edge of $G$ lies in a triangle and **zero computer search**.
 
-See [PAPER_NOTE.md](PAPER_NOTE.md) for the full human-readable proof sketch.
+See [PAPER_NOTE.md](PAPER_NOTE.md) for the full human-readable proof sketches.
 
 ## Verified Lean 4 Files (`lean/`)
 
@@ -50,11 +51,11 @@ Every file below passed `lake env lean` in Lean `4.33.1` + Mathlib + `formal-con
 
 ## Remaining Explicit Premises
 
-The $H(n) = 11$ reduction is conditional on:
-1. $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`, McKay & Min 1992 — formalization in progress via `R1.H1.R1.H1.R1.H2.R1`),
-2. $R(3,11) \ge 47$ (`∀ n, 11 ≤ Erdos151.H n → 47 ≤ n` — **already proved in pure kernel** in `...H3.lean`),
-3. Bikov's 7-vertex link-extension lemma (**already proved in pure kernel** in `...H4.lean`), and
-4. The remaining open core `12 ≤ Erdos151.H n` ($n \ge 53$).
+The combined $H(n) \le 12$ ($n \neq 53$) reduction chain is conditional on:
+1. $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`, McKay & Min 1992 — degree reductions merged in `#10388`, pure-kernel $R(3,6) \le 18$ submitted in `#16943`),
+2. $R(3,11) \ge 47$ (**proved in pure kernel** in `...H3.lean`) and $R(3,12) \ge 53$ (known bound; an improved $R(3,12) \ge 54$ would eliminate $n = 53$ outright),
+3. Bikov's 7-vertex link-extension lemma (**proved in pure kernel**) and Seymour's triangle-count bound $T(F) \ge |E(F)|$ for minimal $(3,3)$-arrowing subgraphs, and
+4. The remaining open core: **$(H(n) = 12 \land n = 53)$ or $13 \le H(n)$ ($n \ge 60$)**.
 
 ## Reproducibility
 

@@ -23,12 +23,36 @@ Let $G$ be a $K_4$-free graph on $n \ge 47$ vertices with $H(n) = 11$ and maximu
 
 ---
 
+# A Four-Anchor Star / Cubic-Link $C_4$ Argument for $H(n) = 12$ ($n \ge 54$, Isolating $n = 53$)
+
+## Theorem (Formalized in Lean 4 — [PR #19010](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/19010))
+
+Assuming $R(3,8) \le 28$, $R(3,12) \ge 53$, Bikov's 7-vertex link-extension lemma, and Seymour's triangle-count bound $T(F) \ge |E(F)|$ for minimal $(3,3)$-arrowing graphs, every $K_4$-free graph $G$ on $n \ge 54$ vertices with $H(n) = 12$ satisfies
+$$\tau(G) \le n - 12.$$
+In particular, within the entire $H(n) = 12$ band ($53 \le n \le 59$), **order $n = 53$ is the unique remaining case** (and would be eliminated outright by $R(3,12) \ge 54$).
+
+## Proof Sketch
+
+Suppose $\Delta(G) \le 11$, $H(n) = 12$, $n \ge 54$, and take a subgraph-minimal $(3,3)$-arrowing subgraph $F \le G$. Then $\delta(F) \ge 8$, every $F$-edge lies in at least $2$ $F$-triangles, and $T(F) \ge |E(F)|$ by Seymour's theorem. Write $Q_b = G[N_F(b)]$ and $s_{ab} = |N_G(a) \cap N_G(b)|$. For any $a \in N_F(b)$, there is an independent set $I_a \subseteq P_a$ containing $b$ with $|I_a| + s_{ab} \ge 5, 6, 7$ when $d_{Q_b}(a) \ge 2, 3, 4$ respectively.
+
+For any independent $I_b \subseteq Q_b$ containing three leaves $a, c, d$, deleting $D = \{b, a, c, d\} \cup \bigcup_{v \in \{b,a,c,d\}} (N_G(v) \setminus I_v)$ counts all three star-edge overlaps without overcounting, giving
+$$|D| \le 48 - \left(|I_b| + \sum_{x \in \{a,c,d\}} (|I_x| + s_{bx})\right).$$
+
+- **Case 1 (Star sum $\ge 22$).** Then $|D| \le 26$, leaving $\ge 54 - 26 = 28$ vertices; $R(3,8) \le 28$ + Bikov $k \le 7$ yields $8$ triangle-free vertices in $G - D$, and adding the $4$ star anchors back gives $12$ triangle-free vertices.
+- **Case 2 (Every star sum $< 22$).** Applying the weight table to the neighborhood of each vertex in $Q_b$ shows $d \le 6$ and $2n_4 + 4n_5 + 6n_6 \le 2n_2$, i.e. $2|E(Q_b)| \le 3|V(Q_b)|$. Meanwhile Seymour's bound gives $\sum_b |E(Q_b)| \ge 3T(F) \ge 3|E(F)| = \frac{3}{2}\sum_b |V(Q_b)|$. Equality holds everywhere: every link equals its $F$-link, no degree-2 edge can survive (its triangle neighbor would force two adjacent degree-$\ge 4$ vertices in a link), so **every link is 3-regular on 8 vertices with $\alpha \le 3$**.
+  - Any 3-regular triangle-free 8-vertex graph contains an **induced $C_4$ square** $a - b - c - e - a$ (otherwise $1 + 3 + 6 = 10 > 8$).
+  - At each square vertex $w$, its two square neighbors extend to an independent triple $I_w \subseteq N_F(w)$ (if their link-neighborhoods were disjoint, one vertex plus the other's 3 neighbors would be an independent 4-set; if they intersect, $\le 5$ vertices are covered, leaving $\ge 1$ of the other 6 vertices).
+  - Each of the 4 square edges lies in $3$ $F$-triangles, giving overlap savings $12 - \mu$, where $\mu = |S_a \cap S_b \cap S_c \cap S_e|$ counts common neighbors of all four anchors. We have $\mu \le 2$: if $\mu = 3$, then in $N_F(a)$, $b$ and $e$ share the same $3$ neighbors, and the remaining $3$ vertices of $N_F(a)$ contain a non-adjacent pair forming an independent 4-set with $\{b, e\}$, contradicting $\alpha \le 3$.
+  - Hence $|D| \le 4 + 4(11 - 3) - (12 - 2) = 26$, leaving $\ge 28$ vertices and closing all $n \ge 54$. $\square$
+
+---
+
 ## Draft X Post
 
-> We formally verified a new partial result on $K_4$-free Erdős Problem #151 in Lean 4 (pure kernel, zero `sorry`, standard axioms only):
+> Formalized new partial progress on $K_4$-free Erdős Problem #151 in pure-kernel Lean 4 (`propext`, `Classical.choice`, `Quot.sound` only; 0 `sorry`, no `bv_decide`/`native_decide`):
 >
-> Using a **3-vertex induced-path overlap argument** in a minimal $(3,3)$-arrowing subgraph, we prove $\tau(G) \le n - H(n)$ for **all** $K_4$-free graphs with $H(n) = 11$ — closing all orders through **$n = 52$** (via $R(3,12) \ge 53$), conditional on $R(3,8) \le 28$ (with Bikov's $k \le 7$ lemma and $R(3,11) \ge 47$ also proved in pure-kernel Lean 4).
+> • **$H(n) = 11$ ($n \le 52$, merged):** computer-free 3-anchor induced-path overlap reduction (deletion cost $\le 19$)
+> • **$H(n) = 12$ ($n \ge 54$, submitted):** computer-free 4-anchor $K_{1,3}$ star vs. Seymour-forced cubic-link $C_4$ square reduction (deletion cost $\le 26$), closing all $n \le 59$ except possibly $n = 53$!
+> • **Pure-kernel Ramsey & link proofs:** Bikov ($k \le 7$), $R(3,6) \le 18$ (via bitmask `rfl` certificates), $R(3,9) \ge 36$, $R(3,10) \ge 40$, $R(3,11) \ge 47$.
 >
-> Key idea: find an induced path $a - b - c$ whose two edges provide enough shared-neighbor savings to delete $\le 19$ vertices, retain $\ge 28$, and add all 3 anchors back. No "every edge in a triangle" assumption and zero computer search in the reduction.
->
-> Full Lean 4 proofs & writeup: `<your-github-repo-url>`
+> Full Lean 4 proofs & writeup: https://github.com/SanskarX10/erdos151-k4free-lean
