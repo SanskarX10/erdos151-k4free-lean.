@@ -40,9 +40,10 @@ Every file below passed `lake env lean` in Lean `4.33.1` + Mathlib + `formal-con
 | `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.lean` | Combined $H(n) = 10, 11$ reduction on `R2.H2.R2.H1` | [PR #10215](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10215) (CI passed) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H1.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ under `R2.H2.R2.H1.R1` | [PR #11175](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11175) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H2.lean` | $R(3,10) \ge 40 \land R(3,11) \ge 47$ (pure-kernel matching-cover trees) | [PR #10935](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10935) |
-| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | Verified |
+| `Erdos151.erdos_151.variants.cliqueFree_four.R2.H2.R2.H1.R1.H3.lean` | Bikov $k \le 7$ for `R2.H2.R2.H1.R1` | [PR #11879](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11879) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.lean` | McKay–Min degree reduction for $R(3,8) \le 28$ (`8 ≤ Erdos151.H 28`) | [PR #10388](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/10388) (CI passed) |
 | `Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.lean` | Degree reduction for $R(3,7) \le 23$ (`7 ≤ Erdos151.H 23`) | [PR #11008](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/11008) |
+| **`Erdos151.erdos_151.variants.cliqueFree_four.R1.H1.R1.H1.R1.H2.R1.H1.R1.H1.lean`** | **Pure-kernel proof of $R(3,6) \le 18$ (`6 ≤ Erdos151.H 18`)** | [PR #16943](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/16943) |
 
 *(Also merged earlier in the same chain: [PR #4497](https://github.com/GuillaumeBAUD-coder/open-math-agents/pull/4497) for `R1.H1.R1`, degeneracy 6 → 7.)*
 
@@ -58,3 +59,4 @@ The $H(n) = 11$ reduction is conditional on:
 
 - Formalizations were produced with `ply-math` (`gpt-6.2-sol + gpt-6-lluna`) and verified on Lean `4.33.1` + `formal-conjectures` (`9097e2f90e`).
 - `scripts/gen_h3.py` reproduces the pure-kernel matching-cover branch-and-bound certificate generator for Ramsey lower bounds.
+- `scripts/gen_r36.py` reproduces the pure-kernel bitmask certificate generator for the 5-regular 18-vertex case of $R(3,6) \le 18$.
