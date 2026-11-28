@@ -47,12 +47,3 @@ $$|D| \le 48 - \left(|I_b| + \sum_{x \in \{a,c,d\}} (|I_x| + s_{bx})\right).$$
 
 ---
 
-## Draft X Post
-
-> Formalized new partial progress on $K_4$-free Erdős Problem #151 in pure-kernel Lean 4 (`propext`, `Classical.choice`, `Quot.sound` only; 0 `sorry`, no `bv_decide`/`native_decide`):
->
-> • **$H(n) = 11$ ($n \le 52$, merged):** computer-free 3-anchor induced-path overlap reduction (deletion cost $\le 19$)
-> • **$H(n) = 12$ ($n \ge 54$, submitted):** computer-free 4-anchor $K_{1,3}$ star vs. Seymour-forced cubic-link $C_4$ square reduction (deletion cost $\le 26$), closing all $n \le 59$ except possibly $n = 53$!
-> • **Pure-kernel Ramsey & link proofs:** Bikov ($k \le 7$), $R(3,6) \le 18$ (via bitmask `rfl` certificates), $R(3,9) \ge 36$, $R(3,10) \ge 40$, $R(3,11) \ge 47$.
->
-> Full Lean 4 proofs & writeup: https://github.com/SanskarX10/erdos151-k4free-lean
